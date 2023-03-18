@@ -146,7 +146,7 @@
         }
 
         .name_name{
-            margin: 0px 10px;
+            margin: 0px 40px;
             justify-content: center;
             align-items: center;
             display: flex;
@@ -199,6 +199,13 @@
             width: 20%;
             height: 80%;
 
+        }
+    </style>
+
+
+    <style>
+        .create_party{
+            display: none;
         }
     </style>
 </head>
@@ -323,6 +330,39 @@
 
     </div>
 
+    <div class="create_party">
+        <div class="cp_name">
+            Name
+        </div>
+        <div class="cp_description">
+            Decription
+        </div>
+        <div class="cp_type">
+            Type
+        </div>
+        <div class="cp_beginning">
+            Begining
+        </div>
+        <div class="cp_length">
+            length
+        </div>
+        <div class="cp_playlist">
+            Playlist
+        </div>
+        <div class="cp_program">
+            Program
+        </div>
+        <div class="cp_ban_list">
+            Ban List
+        </div>
+        <div class="cp_location">
+            
+        </div>
+        <div class="cp_playlist">
+            PlayList
+        </div>
+    </div>
+
     <footer>
         <div class="footer_sub_element">
 
@@ -358,5 +398,29 @@
             }
           }
         }
-        </script>
+    </script>
+
+    <script>
+        let isHomeHidden = false;
+        document.onkeypress = function(e) {
+            if(e.key =="j")
+            {
+                let el = document.getElementsByClassName("content")[0];
+                let el_2 = document.getElementsByClassName("create_party")[0];
+                if(isHomeHidden){
+                    
+                    el.style.display = "flex";
+                    el_2.style.display = "none";
+
+                    console.log("show");
+                }
+                else {
+                    el.style.display = "none";
+                    el_2.style.display = "flex";
+                    console.log("none");
+                }
+                isHomeHidden = !isHomeHidden;
+            }
+        }
+    </script>
 </html>
