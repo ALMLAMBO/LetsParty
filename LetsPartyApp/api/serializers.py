@@ -20,7 +20,16 @@ class GameSerialization(serializers.ModelSerializer):
         fields = ('id', 'name', 'description', 'number_of_players', 'duration', 'fetch_by')
         read_only_fields = ('id',)
 
+'''
+class ItemsSerialization(serializers.ModelSerializer):
+    fetch_by = serializers.HiddenField(required=False)
 
+    class Meta:
+        model = Items
+        fields = ('id', 'name', 'price', 'brought', 'quantity', 'fetch_by')
+        read_only_fields = ('id',)
+
+'''
 class PartySerialization(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
