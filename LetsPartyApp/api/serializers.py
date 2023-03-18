@@ -5,9 +5,12 @@ from base.models import Game, Items, Location, Party
 
 
 class LocationSerialization(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
+
     class Meta:
         model = Location
         fields = '__all__'
+        read_only_fields = ('id',)
 
 
 class GameSerialization(serializers.ModelSerializer):
