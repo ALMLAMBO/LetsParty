@@ -1,4 +1,94 @@
-p {
-  padding: 2em;
-  background-color: blueviolet;
+.header{
+  width: 100%;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: inherit;
+
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: space-between;
+  height: fit-content;
+  overflow: auto;
+}
+
+.header_1{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.header_1_stuff{
+  margin: 0px 10px;
+  
+  width: 200px;
+  text-align: center;
+  min-height: fit-content;
+  border: 3px white solid;
+}
+
+.header_profile{
+  margin: 10px 20px;
+  /* width: 200px; */
+  text-align: center;
+  height: fit-content;
+  border: 3px white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+mat-toolbar {
+  background-color: rgb(103,58,183);
+  justify-content: space-between;
+}
+
+.profile_button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.profile_content{
+  display: none;
+  justify-content: right;
+  position: absolute;
+  width: 100%;
+  background-color: #f1f1f1;
+  width: fit-content;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.profile_content a{
+  display: flex;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  align-content:end;
+}
+
+.show {display: block;}
+
+
+footer{
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.footer_sub_element{
+  margin: auto 5%;
+  background-color: purple;
+  width: 20%;
+  height: 80%;
 }

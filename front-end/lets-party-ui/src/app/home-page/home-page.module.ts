@@ -11,6 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatChipsModule
   ],
   exports: [
     PartyComponent,
@@ -38,3 +44,5 @@ import { MatInputModule } from '@angular/material/input';
 export class HomePageModule {
   party_list:PartyListComponent = new PartyListComponent();
 }
+
+

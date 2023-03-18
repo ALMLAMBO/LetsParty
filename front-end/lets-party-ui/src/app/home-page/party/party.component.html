@@ -1,13 +1,31 @@
-<mat-card>
-  <mat-card-header>
-  <mat-card-title>
-    {{name}}
-  </mat-card-title>
-  <mat-card-subtitle>{{owner}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <h3>{{type}}</h3>
-    <h3>{{privacy}}</h3>
-    <p>Party will be at {{location}} starting at 10pm and lasting for {{length}} hrs!!</p>
-  </mat-card-content>
+<mat-card appearance="raised">
+    <div>
+      <mat-card-header>
+        <mat-card-title>
+          {{name}}
+        </mat-card-title>
+        <mat-card-subtitle>Owner: {{owner}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-chip highlighted [disableRipple]="true">{{privacy}}</mat-chip>
+        <mat-chip highlighted [disableRipple]="true">{{type}}</mat-chip>
+        <mat-chip [disableRipple]="true">20/35</mat-chip>
+        <!-- <p>Party will be at {{location}} starting at 10pm and lasting for {{length}} hrs!!</p> -->
+      </mat-card-content>
+    </div>
+    <div class="more-info-button">
+      <button mat-raised-button>More Info</button>
+    </div>
 </mat-card>
+<!-- 
+<div class="party_elem">
+  <div class="attending_type">
+    <div class="people_attending">20 / 35</div>
+    <div class="party_type">Private</div>
+  </div>
+  <div class="name_name">
+    <div class="party_name">Custom Name #1</div>
+    <div class="party_owner">Joe Mama</div>
+  </div>
+  <div class="party_location_button">More info</div>
+</div> -->
