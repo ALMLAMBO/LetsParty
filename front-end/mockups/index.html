@@ -1,0 +1,759 @@
+<html>
+<head>
+    <style>
+        .header{
+            width: 100%;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            width: inherit;
+            background-color: blue;
+
+
+            font-size: 40px;
+            font-weight: bold;
+            justify-content: space-between;
+            height: fit-content;
+            overflow: auto;
+        }
+
+        .header_1{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .header_1_stuff{
+            margin: 0px 10px;
+            
+            width: 200px;
+            text-align: center;
+            min-height: fit-content;
+            border: 3px black solid;
+        }
+
+        .header_profile{
+            margin: 10px 20px;
+            width: 200px;
+            text-align: center;
+            height: fit-content;
+            border: 3px black solid;
+            cursor: pointer;
+        }
+
+        .header_profile:hover, .header_profile:focus {
+            background-color: green   
+        }
+
+        .profile_button{
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .profile_content{
+            display: none;
+            justify-content: right;
+            position: absolute;
+            width: 100%;
+            background-color: #f1f1f1;
+            width: fit-content;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .profile_content a{
+            display: flex;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            align-content:end;
+        }
+
+        .profile_content a:hover {
+            background-color: orange;
+        }
+
+        .show {display: block;}
+
+
+
+        /* The popup form - hidden by default */
+        .form-popup {
+  display: none;
+  position: absolute;
+  left:800px;
+  top:250px;
+
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/*
+
+
+        /* The popup form - hidden by default */
+        .form-popup-register {
+  display: none;
+  position: absolute;
+  left:600px;
+  top:150px;
+
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container-register {
+  margin:auto;
+  max-width: 700px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container-register input[type=text], .form-container-register input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container-register input[type=text]:focus, .form-container-register input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container-register .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container-register .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container-register .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+    </style>
+
+    <style>
+        .content{
+            margin: auto;
+            
+            width: 80%;
+            height: 80%;
+            border: solid 3px black;
+            background-color: red;
+
+
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .display_content{
+            flex-direction: row;
+            display: flex;
+            height: 80%;
+            width: 100%;
+        }
+        .content_bar{               
+            border: solid blue 3px;
+            background-color: green;
+            width: 60%;
+            height: 100%;
+            margin: 20px;
+            overflow:auto;
+        }
+
+
+        .sort_content{
+            background-color: paleturquoise;
+            width: 100%;
+            height: 15%;
+        }
+
+        .sort_name{
+
+        }
+
+
+        .party_elem{
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+            border: solid white 3px;
+            background-color: black;
+            width: 95%;
+            margin: 10px;
+            height: 20%;
+        }
+
+        .attending_type{
+            flex-direction: column;
+            height: 100%;
+            width: 30%;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .people_attending{
+            margin: 10px 10px;
+            background-color: orange;
+            width: 80%;
+            height: fit-content;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .party_type{
+            margin: 10px 10px;
+            background-color: red;
+            width: 80%;
+            height: fit-content;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .name_name{
+            margin: 0px 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .party_name{
+            font-weight: bold;
+            text-align: left;
+            font-size: 40px;
+            color: white;
+        }
+
+        .party_owner{
+            font-weight: bold;
+            text-align: left;
+            font-size: 20px;
+            color: white;
+        }
+
+        .party_location_button{
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            border: 3px solid brown;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            width: 80px;
+            height: 80px;
+            background-color: aqua;
+        }
+    </style>
+
+    <style>
+        footer{
+            background-color: grey;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 10%;
+            justify-content: space-between;
+            vertical-align: middle;
+        }
+
+        .footer_sub_element{
+            margin: auto 5%;
+            background-color: purple;
+            width: 20%;
+            height: 80%;
+
+        }
+    </style>
+
+    <style>
+        
+        .map_location{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: solid pink 3px;
+            background-color: orange;
+            width: 40%;
+            margin: 20px;
+            height: 100%;
+        }
+
+        .actual_map{
+            margin: 30px auto;
+            background-color: yellow;
+            width: 80%;
+            height: 60%;
+
+        }
+
+        .more_info{
+            display: flex;
+            flex-direction: row;
+            margin: 0px auto;
+        }
+
+    </style>
+
+
+
+    <style>
+        .create_party{
+            margin: 0px auto;
+            
+            width: 80%;
+            height: 80%;
+            border: solid 3px black;
+            background-color: red;
+
+            display: none;
+            flex-direction: column;
+        }
+
+        .cp_information {
+            display: flex;
+            flex-direction: row;
+            height: 80%;
+            
+        }
+
+        .cp_left{
+            display: flex;
+            flex-direction: column;
+            background-color: blue;
+            width: 45%;
+            height: 85%;
+            margin: 5% auto;
+
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .cp_left_name{
+            display: flex;
+            flex-direction: column;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+            height: 15%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cp_left_description{
+            display: flex;
+            flex-direction: column;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+            height: 15%;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .cp_left_location{
+            display: flex;
+            flex-direction: column;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+            height: 70%;
+            align-items: center;
+            margin: 30px 0px;
+        }
+
+        .cp_left_location_map{
+            margin: 20px 0;
+            background-color: cyan;
+            width: 80%;
+            height: 80%;
+        }
+
+        .cp_right{
+            background-color: purple;
+            width: 45%;
+            height: 85%;
+            margin: 5% auto;
+            
+            font-size: 30px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .cp_right_privacy_type{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        
+        .cp_right_location_type{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_date{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_beginning{
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .cp_right_length{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_optionals{
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .cp_optionals{
+            display: none;
+        }
+
+        .cp_create_button{
+            display: flex;
+            font-size: 30px;
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
+            height: 15%;
+        }  
+
+        .cp_create_button_area{
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: white;
+            width: 30%;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+
+<body style="margin:0 0;">
+    <div class="header">
+        <header>
+            <div class="header_1">
+                <div class="header_1_stuff">Home</div>
+                <div class="header_1_stuff">Calendar</div>
+                <div class="header_1_stuff">Friends</div>
+                <div class="header_1_stuff">About us</div>
+            </div>
+            <div class="header_profile">
+                <button onclick="myFunction()" class="profile_button">Profile</button>
+            </div>
+        </header>
+    </div>
+
+    <div id="profileContentInfo" class="profile_content">
+        <a class="content_content" style="cursor: pointer;" onclick="openLoginForm()">Login</a>
+        <a class="content_content" style="cursor: pointer;" onclick="openRegisterForm()">Register</a>
+    </div>
+
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <h1>Login</h1>
+      
+          <label for="email"><b>Email/Username</b></label>
+          <input type="text" placeholder="Enter Email/Username" name="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="form-popup-register" id="myForm-register">
+        <form class="form-container-register">
+          <h1>Register</h1>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="email"><b>First Name</b></label>
+          <input type="text" placeholder="Enter First Name" name="f_name" required>
+      
+          <label for="email"><b>Last Name</b></label>
+          <input type="text" placeholder="Enter Last Name" name="l_name" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw_1" required>
+          
+          <label for="psw"><b>Re-Enter Password</b></label>
+          <input type="password" placeholder="Re-Enter Password" name="psw_2" required>
+      
+          <button type="submit" class="btn">Register</button>
+          <button type="button" class="btn cancel" onclick="closeRegisterForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="content">
+        <div class="sort_content">
+            Enter name:<input type="text" class="sort_name"></input>
+            <button class="sort_search">Search</button>
+        </div>
+        
+        <div class="display_content">
+            <div class="content_bar">
+                <div class="party_elem">
+                    <div class="attending_type">
+                    <div class="people_attending">20 / 35</div>
+                    <div class="party_type">Private</div>
+                    </div>
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">More info</div>
+                </div>
+            </div>
+            <div class="map_location">
+                <iframe class="actual_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="more_info">
+                    <div class="fr_#">12 ppl</div>
+                    <div class="fr_#">12 ppl</div>
+                    <div class="fr_#">12 ppl</div>
+                </div>
+            </div>           
+        </div>
+
+    </div>
+
+    <div class="create_party">
+        <div class="cp_information">
+            <div class="cp_left">
+                <div class="cp_left_name">
+                    Name
+                    <input>
+                </div>
+    
+                <div class="cp_left_description">
+                    Decription
+                    <input>
+                </div>
+    
+                <div class="cp_left_location">
+                    Location
+                    <div class="cp_left_location_map">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="cp_right">
+                    <div class="cp_right_privacy_type">
+                        Privacy Type:
+                        <div class="cp_type_public">Public</div>
+                        <div class="cp_type_private">Private</div>
+                    </div>
+                    <div class="cp_right_location_type">
+                        Location Type:
+                        <div class="home_outisde_el">Home</div>
+                        <div class="home_outisde_el">Outdoors</div>
+                    </div>
+                    <div class="cp_right_date">
+                        Date
+                        <input>
+                    </div>
+                    
+                    <div class="cp_right_beginning">
+                        Begining
+                        <input>
+                    </div>
+                    <div class="cp_right_length">
+                        Length
+                        <input>
+                    </div>
+                    <div class="cp_right_optionals">Optionals</div>
+            </div>
+        </div>
+        
+        <div class="cp_create_button">
+            <div class="cp_create_button_area">Create Party
+            </div>
+        </div>
+        <div class="cp_optionals">
+            <div class="cp_playlist">
+                Playlist
+                <input>
+            </div>
+            <div class="cp_ban_list">
+                Ban List
+                <input>
+            </div>
+            <div class="games">
+                Games
+                <input>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer_sub_element">
+
+        </div>
+        <div class="footer_sub_element">
+
+        </div>
+        <div class="footer_sub_element">
+
+        </div>
+    </footer>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("profileContentInfo").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.profile_button')) {
+            var dropdowns = document.getElementsByClassName("content_content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                
+            console.log(dropdowns.length);
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+
+        function openLoginForm() {
+            document.getElementById("myForm").style.display = "flex";
+            document.getElementById("myForm-register").style.display = "none";
+        }
+
+        function closeLoginForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+
+        function openRegisterForm() {
+            document.getElementById("myForm-register").style.display = "flex";
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function closeRegisterForm() {
+            document.getElementById("myForm-register").style.display = "none";
+            console.log('ss');
+        }
+
+
+    </script>
+
+    <script>
+        let isHomeHidden = false;
+        document.onkeypress = function(e) {
+            if(e.key =="j")
+            {
+                let el = document.getElementsByClassName("content")[0];
+                let el_2 = document.getElementsByClassName("create_party")[0];
+                if(isHomeHidden){
+                    
+                    el.style.display = "flex";
+                    el_2.style.display = "none";
+
+                    console.log("show");
+                }
+                else {
+                    el.style.display = "none";
+                    el_2.style.display = "flex";
+                    console.log("none");
+                }
+                isHomeHidden = !isHomeHidden;
+            }
+        }
+        
+    </script>
+
+
+</html>
