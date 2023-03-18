@@ -6,7 +6,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
-import { MaterialModuleModule } from "../material-module/material-module.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 
@@ -24,7 +23,6 @@ import {MatButtonModule} from "@angular/material/button";
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    MaterialModuleModule,
     MatIconModule,
     MatButtonModule
   ]
