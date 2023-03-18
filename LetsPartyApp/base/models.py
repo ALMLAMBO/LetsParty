@@ -24,12 +24,19 @@ class Game(models.Model):
 class Items(models.Model):
     name = models.CharField(max_length=100, blank=False)
     price = models.DecimalField(blank=True, default=0, decimal_places=2, max_digits=5)
-    bought = models.BooleanField(blank=False, default=False)
+    bought = models.BooleanField(blank=True, default=False)
     quantity = models.IntegerField(default=1, validators=[MinValueValidator(1)])
-    fetch_by = models.ForeignKey(User, on_delete=models.SET_DEFAULT, blank=True, null=True, default=None)
+    fetch_by = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.bought and not self.fetch_by:
+            self.fetch_by = self._meta.model.fetch_by.field.default(self)
+        elif not self.bought:
+            self.fetch_by = None
+        super().save(*args, **kwargs)
 
 
 class Party(models.Model):

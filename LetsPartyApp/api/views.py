@@ -3,7 +3,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from base.models import Items, Game, Location, Party
-from .serializers import PartySerialization, GameSerialization, LocationSerialization
+from .serializers import PartySerialization, GameSerialization, LocationSerialization, ItemsSerialization
 
 
 @api_view(['GET'])
@@ -65,6 +65,7 @@ def get_locations(request):
     serializer = LocationSerialization(locations, many=True)
     return Response(serializer.data)
 
+
 @api_view(['GET'])
 def get_location(request, loc_id):
     try:
@@ -101,4 +102,50 @@ def update_location(request, loc_id):
 def delete_location(request, loc_id):
     location = get_object_or_404(Game, pk=loc_id)
     location.delete()
+    return Response(status=status.HTTP_202_ACCEPTED)
+
+
+@api_view(['GET'])
+def get_items(request):
+    items = Items.objects.all()
+    serializer = ItemsSerialization(items, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_item(request, item_id):
+    try:
+        item = Items.objects.get(id=item_id)
+    except Location.DoesNotExist:
+        return Response({'error': 'Item not found'}, status=status.HTTP_404_NOT_FOUND)
+    serializer = ItemsSerialization(item, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_item(request):
+    serializer = ItemsSerialization(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+
+@api_view(['PUT'])
+def update_item(request, item_id):
+    try:
+        item = Items.objects.get(id=item_id)
+    except Items.DoesNotExist:
+        return Response({'error': 'Item not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = ItemsSerialization(item, data=request.data, context={'request': request})
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+def delete_item(request, item_id):
+    item = get_object_or_404(Game, pk=item_id)
+    item.delete()
     return Response(status=status.HTTP_202_ACCEPTED)
