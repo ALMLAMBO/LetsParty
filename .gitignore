@@ -1,58 +1,53 @@
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
-.idea
+# C extensions
+*.so
 
-# AWS User-specific
-.idea/**/aws.xml
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.eggs/
 
-# Generated files
-.idea/**/contentModel.xml
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
+# Pycharm project files
+.idea/
 
-# Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
+# PyTest cache
+.pytest_cache/
 
-# Gradle and Maven with auto-import
-# When using Gradle or Maven with auto-import, you should exclude module files,
-# since they will be recreated, and may cause churn.  Uncomment if using
-# auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
+# Coverage
+.coverage
+coverage.xml
 
-# CMake
-cmake-build-*/
+# Tox
+.tox/
+.cache/
+.python-version
 
-# Mongo Explorer plugin
-.idea/**/mongoSettings.xml
+# VirtualEnv
+.venv/
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+# Developers
+*.sw*
+manage.py
+.DS_Store
 
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
+# example database
+drf_example
