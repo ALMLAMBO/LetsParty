@@ -17,7 +17,6 @@
             justify-content: space-between;
             height: fit-content;
             overflow: auto;
-            position: fixed;
         }
 
         .header_1{
@@ -58,7 +57,9 @@
 
         .profile_content{
             display: none;
+            justify-content: right;
             position: absolute;
+            width: 100%;
             background-color: #f1f1f1;
             width: fit-content;
             overflow: auto;
@@ -67,10 +68,12 @@
         }
 
         .profile_content a{
+            display: flex;
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            align-content:end;
         }
 
         .profile_content a:hover {
@@ -80,6 +83,121 @@
         .show {display: block;}
 
 
+    </style>
+
+    <style>
+        .content{
+            margin: auto;
+            
+            width: 80%;
+            height: 80%;
+            border: solid 3px black;
+            background-color: red;
+
+
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .display_content{
+            flex-direction: row;
+            display: flex;
+            height: 80%;
+            width: 100%;
+        }
+        .content_bar{               
+            border: solid blue 3px;
+            background-color: green;
+            width: 60%;
+            height: 100%;
+            margin: 20px;
+            overflow:auto;
+        }
+
+        .map_location{
+            border: solid pink 3px;
+            background-color: orange;
+            width: 40%;
+            margin: 20px;
+            height: 100%;
+        }
+
+        .sort_content{
+            background-color: paleturquoise;
+            width: 100%;
+            height: 15%;
+        }
+
+        .sort_name{
+
+        }
+
+
+        .party_elem{
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            border: solid white 3px;
+            background-color: black;
+            width: 80%;
+            margin: 10px;
+            height: 20%;
+        }
+
+        .name_name{
+            margin: 0px 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        .party_name{
+            font-weight: bold;
+            text-align: left;
+            font-size: 40px;
+            color: white;
+        }
+
+        .party_owner{
+            font-weight: bold;
+            text-align: left;
+            font-size: 20px;
+            color: white;
+        }
+
+        .party_location_button{
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            border: 3px solid brown;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            width: 80px;
+            height: 80px;
+            background-color: aqua;
+        }
+    </style>
+
+    <style>
+        footer{
+            background-color: grey;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 10%;
+            justify-content: space-between;
+        }
+
+        .footer_sub_element{
+            background-color: purple;
+            width: 20%;
+            height: 80%;
+
+        }
     </style>
 </head>
 
@@ -94,17 +212,84 @@
             </div>
             <div class="header_profile">
                 <button onclick="myFunction()" class="profile_button">Profile</button>
-                <div id="profileContentInfo" class="profile_content">
-                    <a class="content_content" href="#home">Home</a>
-                    <a class="content_content" href="#about">About</a>
-                    <a class="content_content" href="#contact">Contact</a>
-                </div>
             </div>
         </header>
     </div>
+    <div id="profileContentInfo" class="profile_content">
+        <a class="content_content" href="#home">Login</a>
+        <a class="content_content" href="#about">Register</a>
+        <a class="content_content" href="#contact">Settings</a>
+    </div>
 
+    <div class="content">
+        <div class="sort_content">
+            Enter name:<input type="text" class="sort_name"></input>
+            <button class="sort_search">Search</button>
+        </div>
+        
+        <div class="display_content">
+            <div class="content_bar">
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+                <div class="party_elem">
+                    <div class="name_name">
+                        <div class="party_name">Custom Name #1</div>
+                        <div class="party_owner">Joe Mama</div>
+                    </div>
+                    <div class="party_location_button">Location Button</div>
+                </div>
+            </div>
+            <div class="map_location">
+                
+            </div>           
+        </div>
 
-    <div style="height: 1000px; background-color: red;"></div>
+    </div>
+
+    <footer>
+        <div class="footer_sub_element">
+
+        </div>
+        <div class="footer_sub_element">
+
+        </div>
+        <div class="footer_sub_element">
+
+        </div>
+    </footer>
 
     <script>
         /* When the user clicks on the button, 
