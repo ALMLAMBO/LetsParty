@@ -1,4 +1,12 @@
-<button (click)="reload()">Home</button>
-<button mat-button (click)="openCalendarDialog()">Calendar</button>
-<button>Friends</button>
-<button>About us</button>
+<mat-toolbar>
+    <div class="header_1">
+        <button mat-flat-button color="primary">Home</button>
+        <button mat-flat-button color="primary" (click)="openCalendarDialog()">Calendar</button>
+        <button mat-flat-button color="primary">Friends</button>
+        <button mat-flat-button color="primary">About us</button>
+    </div>
+    <div class="header_profile">
+        <button mat-flat-button color="primary" onclick="myFunction()" class="profile_button">Profiles</button>
+    </div>
+
+</mat-toolbar>
