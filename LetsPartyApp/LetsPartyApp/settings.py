@@ -62,9 +62,9 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-# CORS_ORIGIN_WHITELIST = (
-#   'http://localhost:8081',
-# )
+CORS_ORIGIN_WHITELIST = (
+   'http://localhost:4200',
+)
 
 
 ROOT_URLCONF = 'LetsPartyApp.urls'
