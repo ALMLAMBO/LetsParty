@@ -15,6 +15,8 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.party = this.testService.getTestParty();
+    this.testService.getTestParty().subscribe(data => {
+      this.party = data;
+    });
   }
 }
