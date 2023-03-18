@@ -83,6 +83,121 @@
         .show {display: block;}
 
 
+
+        /* The popup form - hidden by default */
+        .form-popup {
+  display: none;
+  position: absolute;
+  left:800px;
+  top:250px;
+
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/*
+
+
+        /* The popup form - hidden by default */
+        .form-popup-register {
+  display: none;
+  position: fixed;
+  left:600px;
+  top:150px;
+
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container-register {
+  margin:auto;
+  max-width: 700px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container-register input[type=text], .form-container-register input[type=password] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container-register input[type=text]:focus, .form-container-register input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container-register .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container-register .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container-register .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
     </style>
 
     <style>
@@ -135,18 +250,46 @@
 
 
         .party_elem{
-            justify-content: center;
             display: flex;
             flex-direction: row;
+            margin: auto;
             border: solid white 3px;
             background-color: black;
-            width: 80%;
+            width: 95%;
             margin: 10px;
             height: 20%;
         }
 
+        .attending_type{
+            flex-direction: column;
+            height: 100%;
+            width: 30%;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .people_attending{
+            margin: 10px 10px;
+            background-color: orange;
+            width: 80%;
+            height: fit-content;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .party_type{
+            margin: 10px 10px;
+            background-color: red;
+            width: 80%;
+            height: fit-content;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
         .name_name{
-            margin: 0px 40px;
+            margin: 0px 10px;
             justify-content: center;
             align-items: center;
             display: flex;
@@ -205,7 +348,18 @@
 
     <style>
         .create_party{
+            margin: auto;
+            
+            width: 80%;
+            height: 80%;
+            border: solid 3px black;
+            background-color: red;
+
+
+
+            
             display: none;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -224,10 +378,50 @@
             </div>
         </header>
     </div>
+
     <div id="profileContentInfo" class="profile_content">
-        <a class="content_content" href="#home">Login</a>
-        <a class="content_content" href="#about">Register</a>
+        <a class="content_content" onclick="openLoginForm()">Login</a>
+        <a class="content_content" onclick="openRegisterForm()">Register</a>
         <a class="content_content" href="#contact">Settings</a>
+    </div>
+
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <h1>Login</h1>
+      
+          <label for="email"><b>Email/Username</b></label>
+          <input type="text" placeholder="Enter Email/Username" name="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
+        </form>
+    </div>
+
+    <div class="form-popup-register" id="myForm-register">
+        <form class="form-container-register">
+          <h1>Register</h1>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+
+          <label for="email"><b>First Name</b></label>
+          <input type="text" placeholder="Enter First Name" name="email" required>
+      
+          <label for="email"><b>Last Name</b></label>
+          <input type="text" placeholder="Enter Last Name" name="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+          
+          <label for="psw"><b>Re-Enter Password</b></label>
+          <input type="password" placeholder="Re-Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeRegisterForm()">Close</button>
+        </form>
     </div>
 
     <div class="content">
@@ -239,83 +433,10 @@
         <div class="display_content">
             <div class="content_bar">
                 <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
+                    <div class="attending_type">
+                    <div class="people_attending">20 / 35</div>
+                    <div class="party_type">Private</div>
                     </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
-                    <div class="name_name">
-                        <div class="party_name">Custom Name #1</div>
-                        <div class="party_owner">Joe Mama</div>
-                    </div>
-                    <div class="party_location_button">Location Button</div>
-                </div>
-                <div class="party_elem">
                     <div class="name_name">
                         <div class="party_name">Custom Name #1</div>
                         <div class="party_owner">Joe Mama</div>
@@ -333,33 +454,43 @@
     <div class="create_party">
         <div class="cp_name">
             Name
+            <input>
         </div>
         <div class="cp_description">
             Decription
+            <input>
         </div>
         <div class="cp_type">
             Type
+            <input>
         </div>
         <div class="cp_beginning">
             Begining
+            <input>
         </div>
         <div class="cp_length">
             length
+            <input>
         </div>
         <div class="cp_playlist">
             Playlist
+            <input>
         </div>
         <div class="cp_program">
             Program
+            <input>
         </div>
         <div class="cp_ban_list">
             Ban List
+            <input>
         </div>
         <div class="cp_location">
-            
+            Location
+            <input>
         </div>
-        <div class="cp_playlist">
-            PlayList
+        <div class="games">
+            Games
+            <input>
         </div>
     </div>
 
@@ -380,7 +511,6 @@
         toggle between hiding and showing the dropdown content */
         function myFunction() {
           document.getElementById("profileContentInfo").classList.toggle("show");
-          console.log("kekw");
         }
         
         // Close the dropdown if the user clicks outside of it
@@ -398,6 +528,28 @@
             }
           }
         }
+
+        function openLoginForm() {
+            document.getElementById("myForm").style.display = "flex";
+            document.getElementById("myForm-register").style.display = "none";
+        }
+
+        function closeLoginForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+
+        function openRegisterForm() {
+            document.getElementById("myForm-register").style.display = "flex";
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function closeRegisterForm() {
+            document.getElementById("myForm-register").style.display = "none";
+            console.log('ss');
+        }
+
+
     </script>
 
     <script>
