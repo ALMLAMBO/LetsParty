@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -12,11 +11,11 @@ import {MatButtonModule} from "@angular/material/button";
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent
+    RegisterComponent
   ],
   exports: [
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

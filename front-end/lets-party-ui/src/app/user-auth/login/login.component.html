@@ -1,1 +1,39 @@
-<p>login works!</p>
+<html>
+<body>
+  <main>
+    <section>
+      <mat-card-title>
+        <h1>Login</h1>
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="loginForm">
+          <section>
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput [formControl]="loginForm.controls.email" required>
+              <mat-icon matSuffix>alternate_email</mat-icon>
+              <mat-error *ngIf="loginForm.controls.email.invalid">Invalid email</mat-error>
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-form-field appearance="fill">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" [formControl]="loginForm.controls.password" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="loginForm.controls.password.invalid">Invalid password</mat-error>
+            </mat-form-field>
+          </section>
+        </form>
+      </mat-card-content>
+
+      <mat-card-footer>
+        <button mat-raised-button color="primary" (click)="loginUser(loginForm.value)">Login</button>
+      </mat-card-footer>
+    </section>
+  </main>
+</body>
+</html>
