@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'rest_registration',
+
     'base',
 ]
 
@@ -63,9 +65,8 @@ CORS_ALLOW_METHODS = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-   'http://localhost:4200',
+    'http://localhost:4200',
 )
-
 
 ROOT_URLCONF = 'LetsPartyApp.urls'
 
@@ -146,4 +147,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+}
+
+REST_REGISTRATION = {
+    'REGISTER_VERIFICATION_ENABLED': False,
+    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
+    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
 }
