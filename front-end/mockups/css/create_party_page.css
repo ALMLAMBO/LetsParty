@@ -1,0 +1,138 @@
+.create_party{
+    margin: 0px auto;
+    
+    width: 80%;
+    height: 80%;
+    border: solid 3px black;
+    background-color: red;
+
+    display: none;
+    flex-direction: column;
+}
+
+.cp_information {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    
+}
+
+.cp_left{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    width: 45%;
+    height: 85%;
+    margin: 5% auto;
+
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cp_left_name{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    justify-content: center;
+}
+
+.cp_left_description{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.cp_left_location{
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.cp_left_location_map{
+    margin: 20px 0;
+    background-color: cyan;
+    width: 80%;
+    height: 80%;
+}
+
+.cp_right{
+    background-color: purple;
+    width: 45%;
+    height: 85%;
+    margin: 5% auto;
+    
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cp_right_privacy_type{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.cp_right_location_type{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_right_date{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_right_beginning{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_right_length{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_right_optionals{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_optionals{
+    display: none;
+}
+
+.cp_create_button{
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    height: 15%;
+}  
+
+.cp_create_button_area{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    width: 30%;
+    justify-content: center;
+}
