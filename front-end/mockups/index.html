@@ -371,18 +371,22 @@
 
     <style>
         .create_party{
-            margin: auto;
+            margin: 0px auto;
             
             width: 80%;
             height: 80%;
             border: solid 3px black;
             background-color: red;
 
-
-
-            
             display: none;
+            flex-direction: column;
+        }
+
+        .cp_information {
+            display: flex;
             flex-direction: row;
+            height: 80%;
+            
         }
 
         .cp_left{
@@ -390,8 +394,8 @@
             flex-direction: column;
             background-color: blue;
             width: 45%;
-            height: 80%;
-            margin: auto;
+            height: 85%;
+            margin: 5% auto;
 
             justify-content: space-between;
             text-align: center;
@@ -441,13 +445,70 @@
         .cp_right{
             background-color: purple;
             width: 45%;
-            height: 80%;
-            margin: auto;
+            height: 85%;
+            margin: 5% auto;
+            
+            font-size: 30px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
 
+        .cp_right_privacy_type{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        
+        .cp_right_location_type{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_date{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_beginning{
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .cp_right_length{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .cp_right_optionals{
+            display: flex;
+            justify-content: space-around;
+        }
+        
         .cp_optionals{
             display: none;
         }
+
+        .cp_create_button{
+            display: flex;
+            font-size: 30px;
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
+            height: 15%;
+        }  
+
+        .cp_create_button_area{
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: white;
+            width: 30%;
+            justify-content: center;
+        }
+
     </style>
 </head>
 
@@ -543,46 +604,55 @@
     </div>
 
     <div class="create_party">
-        <div class="cp_left">
-            <div class="cp_left_name">
-                Name
-                <input>
-            </div>
-
-            <div class="cp_left_description">
-                Decription
-                <input>
-            </div>
-
-            <div class="cp_left_location">
-                Location
-                <div class="cp_left_location_map">
-
+        <div class="cp_information">
+            <div class="cp_left">
+                <div class="cp_left_name">
+                    Name
+                    <input>
                 </div>
+    
+                <div class="cp_left_description">
+                    Decription
+                    <input>
+                </div>
+    
+                <div class="cp_left_location">
+                    Location
+                    <div class="cp_left_location_map">
+    
+                    </div>
+                </div>
+            </div>
+            <div class="cp_right">
+                    <div class="cp_right_privacy_type">
+                        Privacy Type:
+                        <div class="cp_type_public">Public</div>
+                        <div class="cp_type_private">Private</div>
+                    </div>
+                    <div class="cp_right_location_type">
+                        Location Type:
+                        <div class="home_outisde_el">Home</div>
+                        <div class="home_outisde_el">Outdoors</div>
+                    </div>
+                    <div class="cp_right_date">
+                        Date
+                        <input>
+                    </div>
+                    
+                    <div class="cp_right_beginning">
+                        Begining
+                        <input>
+                    </div>
+                    <div class="cp_right_length">
+                        Length
+                        <input>
+                    </div>
+                    <div class="cp_right_optionals">Optionals</div>
             </div>
         </div>
-        <div class="cp_right">
-            <div class="cp_right_top">
-                <div class="cp_right_type">
-                    Type
-                    <input>
-                </div>
-                <div class="cp_right_beginning">
-                    Begining
-                    <input>
-                </div>
-                <div class="cp_right_length">
-                    length
-                    
-                </div>
-            </div>
-            <div class="cp_right_bottom">
-                <div class="cp_right_home_outside">
-                    <div class="home_outisde_el">Home</div>
-                    <div class="home_outisde_el">Outdoors</div>
-                </div>
-                <div class="cp_right_optionals"></div>
-                <div class="cp_create_button"></div>
+        
+        <div class="cp_create_button">
+            <div class="cp_create_button_area">Create Party
             </div>
         </div>
         <div class="cp_optionals">
