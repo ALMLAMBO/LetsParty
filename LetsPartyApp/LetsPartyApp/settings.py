@@ -62,11 +62,6 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-CORS_ORIGIN_WHITELIST = (
-   'http://localhost:4200',
-)
-
-
 ROOT_URLCONF = 'LetsPartyApp.urls'
 
 TEMPLATES = [
@@ -139,9 +134,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
 }
