@@ -1,0 +1,133 @@
+<html>
+<head>
+    <style>
+        .header{
+            width: 100%;
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            width: inherit;
+            background-color: blue;
+
+
+            font-size: 40px;
+            font-weight: bold;
+            justify-content: space-between;
+            height: fit-content;
+            overflow: auto;
+            position: fixed;
+        }
+
+        .header_1{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .header_1_stuff{
+            margin: 0px 10px;
+            
+            width: 200px;
+            text-align: center;
+            min-height: fit-content;
+            border: 3px black solid;
+        }
+
+        .header_profile{
+            margin: 10px 20px;
+            width: 200px;
+            text-align: center;
+            height: fit-content;
+            border: 3px black solid;
+            cursor: pointer;
+        }
+
+        .header_profile:hover, .header_profile:focus {
+            background-color: green   
+        }
+
+        .profile_button{
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .profile_content{
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            width: fit-content;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .profile_content a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .profile_content a:hover {
+            background-color: orange;
+        }
+
+        .show {display: block;}
+
+
+    </style>
+</head>
+
+<body style="margin:0 0;">
+    <div class="header">
+        <header>
+            <div class="header_1">
+                <div class="header_1_stuff">Home</div>
+                <div class="header_1_stuff">Calendar</div>
+                <div class="header_1_stuff">Friends</div>
+                <div class="header_1_stuff">About us</div>
+            </div>
+            <div class="header_profile">
+                <button onclick="myFunction()" class="profile_button">Profile</button>
+                <div id="profileContentInfo" class="profile_content">
+                    <a class="content_content" href="#home">Home</a>
+                    <a class="content_content" href="#about">About</a>
+                    <a class="content_content" href="#contact">Contact</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <div style="height: 1000px; background-color: red;"></div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("profileContentInfo").classList.toggle("show");
+          console.log("kekw");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.profile_button')) {
+            var dropdowns = document.getElementsByClassName("content_content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                
+            console.log(dropdowns.length);
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+        </script>
+</html>
