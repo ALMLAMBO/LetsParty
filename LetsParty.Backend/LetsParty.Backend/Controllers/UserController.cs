@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using LetsParty.Backend.Services.User;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.Entity;
 
@@ -6,22 +7,20 @@ namespace LetsParty.Backend.Controllers {
 	[Route("api/[controller]/")]
 	[ApiController]
 	public class UserController : ControllerBase {
-		private readonly LetsPartyDbContext _context;
+		private readonly IUserService service;
 
-		public UserController(LetsPartyDbContext context) { 
-			_context = context;
+		public UserController(IUserService service) { 
+			this.service = service;
 		}
 		
 		[HttpGet("all")]
 		public ActionResult<List<Models.User>> Get() {
-			return _context.Users.ToList();	
+			return service.GetAll();	
 		}
 
 		[HttpGet("{id}")]
 		public ActionResult<Models.User> GetUser(int id) {
-			return _context.Users
-				.Where(x => x.Id == id)
-				.FirstOrDefault();
+			return service.GetUser(id);
 		}
 
 		[HttpPost("add")]
@@ -30,8 +29,7 @@ namespace LetsParty.Backend.Controllers {
 				return BadRequest();
 			}
 
-			_context.Users.Add(user);
-			_context.SaveChanges();
+			service.CreateUser(user);
 
 			return Ok();
 		}
@@ -42,12 +40,7 @@ namespace LetsParty.Backend.Controllers {
 				return BadRequest();
 			}
 
-			Models.User userToUpdate = _context.Users
-				.Where(x => x.Id == id)
-				.FirstOrDefault();
-
-			_context.Users.Update(user);
-			_context.SaveChanges();
+			service.UpdateUser(user);
 
 			return Ok();
 		}
@@ -58,12 +51,7 @@ namespace LetsParty.Backend.Controllers {
 				return BadRequest();
 			}
 
-			Models.User user = _context.Users
-				.Where(x => x.Id == id)
-				.FirstOrDefault();
-
-			_context.Remove(user);
-			_context.SaveChanges();
+			service.DeleteUser(id);
 
 			return Ok();
 		}

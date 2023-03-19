@@ -1,4 +1,5 @@
 using LetsParty.Backend;
+using LetsParty.Backend.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LetsPartyDbContext>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
