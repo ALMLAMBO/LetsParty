@@ -32,6 +32,12 @@ namespace LetsParty.Backend.Services.PartyInvite
             return invite;
         }
 
+        public Models.PartyInvite Get(int id)
+        {
+            return _context.PartyInvites.Where(x => x.PartyId == id)
+                            .FirstOrDefault();
+        }
+
         public Models.PartyInvite Sent(Models.PartyInvite invite)
         {
             _context.PartyInvites.Add(invite);
