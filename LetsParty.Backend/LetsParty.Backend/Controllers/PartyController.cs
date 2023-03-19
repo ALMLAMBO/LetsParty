@@ -23,7 +23,7 @@ namespace LetsParty.Backend.Controllers {
 			return partyService.Get(id);
 		}
 
-		[HttpPost("create-item")]
+		[HttpPost("create-party")]
 		public ActionResult<Models.Party> CreateItem([FromBody] Models.Party item) {
 			return partyService.Create(item);
 		}
