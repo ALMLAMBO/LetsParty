@@ -1,4 +1,5 @@
 using LetsParty.Backend;
+using LetsParty.Backend.Services.Game;
 using LetsParty.Backend.Services.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -15,7 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LetsPartyDbContext>();
-builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IGameService, GameService>();
 builder.Services.AddSwaggerGen(options => {
 	options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme {
 		Description = "Standard Authorization header using the Bearer scheme (\"bearer {token}\")",
