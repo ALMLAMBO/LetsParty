@@ -3,6 +3,10 @@ from . import views
 
 urlpatterns = [
     path('', views.get_all_party),
+    path('add_party', views.create_party),
+    path('party/<int:party_id>/', views.get_party),
+    path('update_party/<int:party_id>/', views.update_party),
+    path('delete_party/<int:party_id>/', views.delete_party),
     path('accounts/', include('rest_registration.api.urls')),
     path('games', views.get_games),
     path('add_game/', views.create_game),

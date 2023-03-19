@@ -13,6 +13,59 @@ def get_all_party(request):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def create_party(request):
+    serializer = PartySerialization(data=request.data, context={'request': request})
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['PUT'])
+def update_party(request, party_id):
+    try:
+        game = Party.objects.get(id=party_id)
+    except Party.DoesNotExist:
+        return Response({'error': 'Party not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = PartySerialization(game, data=request.data, context={'request': request})
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+def get_party(request, party_id):
+    try:
+        party = Party.objects.get(id=party_id)
+    except Party.DoesNotExist:
+        return Response({'error': 'Party not found'}, status=status.HTTP_404_NOT_FOUND)
+    serializer = PartySerialization(party, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['PUT'])
+def update_party(request, party_id):
+    try:
+        party = Party.objects.get(id=party_id)
+    except Party.DoesNotExist:
+        return Response({'error': 'Party not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = PartySerialization(party, data=request.data, context={'request': request})
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def delete_party(request, party_id):
+    party = get_object_or_404(Party, pk=party_id)
+    party.delete()
+    return Response(status=status.HTTP_202_ACCEPTED)
+
+
 @api_view(['GET'])
 def get_games(request):
     games = Game.objects.all()

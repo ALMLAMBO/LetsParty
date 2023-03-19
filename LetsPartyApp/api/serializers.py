@@ -38,7 +38,22 @@ class ItemsSerialization(serializers.ModelSerializer):
 
 class PartySerialization(serializers.ModelSerializer):
     owner = serializers.PrimaryKeyRelatedField(default=serializers.CurrentUserDefault(), queryset=User.objects.all())
+    description = serializers.CharField(required=False)
+    guests = serializers.PrimaryKeyRelatedField(many=True, queryset=User.objects.all())
+    locations = serializers.PrimaryKeyRelatedField(many=True, read_only=False, queryset=Location.objects.all())
+    games = serializers.PrimaryKeyRelatedField(many=True, read_only=False, required=False, queryset=Game.objects.all())
+    items = serializers.PrimaryKeyRelatedField(many=True, read_only=False, required=False, queryset=Items.objects.all())
+    id = serializers.IntegerField(required=False)
 
     class Meta:
         model = Party
-        fields = '__all__'
+        fields = ('id', 'name', 'description', 'created_at', 'owner', 'privacy', 'is_home_party',
+                  'beginning', 'duration', 'guests', 'limit', 'locations', 'games', 'items', 'playlist')
+        read_only_fields = ('id', )
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['number_of_guests'] = instance.guests.count()
+
+        return representation
+
