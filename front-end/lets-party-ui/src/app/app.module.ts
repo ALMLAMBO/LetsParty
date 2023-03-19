@@ -9,6 +9,8 @@ import { UserAuthModule } from "./user-auth/user-auth.module";
 
 import { HomePageModule } from './home-page/home-page.module';
 import { MatButtonModule } from '@angular/material/button';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UserAuthModule
+    UserAuthModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

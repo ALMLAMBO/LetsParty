@@ -1,0 +1,17 @@
+.home-page {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+app-party {
+  width: 60%;
+}
+
+app-map-panel {
+  width: 40%;
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
