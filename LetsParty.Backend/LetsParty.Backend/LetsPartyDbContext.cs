@@ -14,6 +14,7 @@ namespace LetsParty.Backend {
 		public DbSet<Item> Items { get; set; }
 		public DbSet<Game> Games { get; set; }
 		public DbSet<Party> Parties { get; set; }
+		public DbSet<PartyInvite> PartyInvites { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder) {
 			modelBuilder.Entity<Models.User>().ToTable("users");
@@ -50,6 +51,17 @@ namespace LetsParty.Backend {
 				.HasMany<User>(p => p.Users)
 				.WithMany(u => u.Parties)
 				.UsingEntity(j => j.ToTable("PartiesUsers"));
+
+			modelBuilder.Entity<PartyInvite>().ToTable("party_invites");
+			modelBuilder.Entity<PartyInvite>()
+				.HasKey(nameof(PartyInvite.PartyId), 
+					nameof(PartyInvite.OwnerId),
+					nameof(PartyInvite.ReceiverId));
+
+
+			modelBuilder.Entity<Party>()
+				.HasMany<PartyInvite>(p => p.PartyInvites)
+				.WithOne(p => p.Party);
 		}
 	}
 }

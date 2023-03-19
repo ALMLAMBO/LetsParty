@@ -3,6 +3,7 @@ using System;
 using LetsParty.Backend;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LetsParty.Backend.Migrations
 {
     [DbContext(typeof(LetsPartyDbContext))]
-    partial class LetsPartyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230319122020_Inv")]
+    partial class Inv
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
@@ -29,7 +32,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasIndex("PartiesPartyId");
 
-                    b.ToTable("PartiesGames", (string)null);
+                    b.ToTable("GameParty");
                 });
 
             modelBuilder.Entity("ItemParty", b =>
@@ -44,7 +47,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasIndex("PartiesPartyId");
 
-                    b.ToTable("PartiesItems", (string)null);
+                    b.ToTable("ItemParty");
                 });
 
             modelBuilder.Entity("LetsParty.Backend.Models.Game", b =>
@@ -70,7 +73,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasKey("GameId");
 
-                    b.ToTable("games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("LetsParty.Backend.Models.Item", b =>
@@ -88,7 +91,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasKey("ItemId");
 
-                    b.ToTable("items", (string)null);
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("LetsParty.Backend.Models.Location", b =>
@@ -138,7 +141,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasKey("PartyId");
 
-                    b.ToTable("parties", (string)null);
+                    b.ToTable("Parties");
                 });
 
             modelBuilder.Entity("LetsParty.Backend.Models.PartyInvite", b =>
@@ -188,18 +191,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("users", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            Email = "test@test.com",
-                            FirstName = "test",
-                            LastName = "test",
-                            Password = "test1234",
-                            Username = "test"
-                        });
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("LocationParty", b =>
@@ -214,7 +206,28 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasIndex("PartiesPartyId");
 
-                    b.ToTable("PartiesLocations", (string)null);
+                    b.ToTable("LocationParty");
+                });
+
+            modelBuilder.Entity("PartyInviteUser", b =>
+                {
+                    b.Property<int>("UsersUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PartyInvitesPartyId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PartyInvitesOwnerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PartyInvitesReceiverId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UsersUserId", "PartyInvitesPartyId", "PartyInvitesOwnerId", "PartyInvitesReceiverId");
+
+                    b.HasIndex("PartyInvitesPartyId", "PartyInvitesOwnerId", "PartyInvitesReceiverId");
+
+                    b.ToTable("PartyInv", (string)null);
                 });
 
             modelBuilder.Entity("PartyUser", b =>
@@ -229,7 +242,7 @@ namespace LetsParty.Backend.Migrations
 
                     b.HasIndex("UsersUserId");
 
-                    b.ToTable("PartiesUsers", (string)null);
+                    b.ToTable("PartyUser");
                 });
 
             modelBuilder.Entity("GameParty", b =>
@@ -284,6 +297,21 @@ namespace LetsParty.Backend.Migrations
                     b.HasOne("LetsParty.Backend.Models.Party", null)
                         .WithMany()
                         .HasForeignKey("PartiesPartyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PartyInviteUser", b =>
+                {
+                    b.HasOne("LetsParty.Backend.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LetsParty.Backend.Models.PartyInvite", null)
+                        .WithMany()
+                        .HasForeignKey("PartyInvitesPartyId", "PartyInvitesOwnerId", "PartyInvitesReceiverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

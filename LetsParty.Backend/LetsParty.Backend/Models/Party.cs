@@ -32,5 +32,6 @@ namespace LetsParty.Backend.Models {
 		public ICollection<Location> Locations { get; set; }
 		public ICollection<User> Users { get; set; }
 		public ICollection<Game> Games { get; set; }
+		public ICollection<PartyInvite> PartyInvites { get; set; }
 	}
 }

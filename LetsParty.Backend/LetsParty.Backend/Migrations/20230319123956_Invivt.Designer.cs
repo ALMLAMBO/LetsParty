@@ -3,6 +3,7 @@ using System;
 using LetsParty.Backend;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LetsParty.Backend.Migrations
 {
     [DbContext(typeof(LetsPartyDbContext))]
-    partial class LetsPartyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230319123956_Invivt")]
+    partial class Invivt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
