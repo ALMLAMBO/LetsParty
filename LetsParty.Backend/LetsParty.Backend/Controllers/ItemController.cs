@@ -36,13 +36,13 @@ namespace LetsParty.Backend.Controllers
         }
 
         [HttpPut("{id}/update")]
-        public ActionResult<Models.Item> UpdateGame(int id, [FromBody] Models.Item item)
+        public ActionResult<Models.Item> UpdateItem(int id, [FromBody] Models.Item item)
         {
             return itemService.Update(item);
         }
 
         [HttpDelete("{id}/delete")]
-        public ActionResult<Models.Item> DeleteGame(int id)
+        public ActionResult<Models.Item> DeleteItem(int id)
         {
             return itemService.Delete(id);
         }
