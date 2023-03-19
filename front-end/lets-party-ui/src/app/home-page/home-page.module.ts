@@ -7,7 +7,6 @@ import { MatCardModule } from '@angular/material/card';
 import { PartyListComponent } from './party-list/party-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
@@ -16,8 +15,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MapPanelComponent } from './map-panel/map-panel.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoginRegisterComponent } from './loginRegister/loginRegister.component';
+import { LoginComponent } from './login/login.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     PartyListComponent,
     CalendarComponent,
     MapPanelComponent,
-    LoginRegisterComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -34,14 +36,14 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSliderModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
     MatChipsModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule
   ],
   exports: [
     PartyComponent,
