@@ -1,14 +1,14 @@
-<mat-card appearance="raised">
+<mat-card *ngFor = "let party of parties" appearance="raised">
     <div>
       <mat-card-header>
         <mat-card-title>
-          {{name}}
+          {{party.name}}
         </mat-card-title>
-        <mat-card-subtitle>Owner: {{owner}}</mat-card-subtitle>
+        <mat-card-subtitle>Owner: {{party.owner}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <mat-chip highlighted [disableRipple]="true">{{privacy}}</mat-chip>
-        <mat-chip highlighted [disableRipple]="true">{{type}}</mat-chip>
+        <mat-chip highlighted [disableRipple]="true">{{party.privacy}}</mat-chip>
+        <mat-chip highlighted [disableRipple]="true">{{party.type}}</mat-chip>
         <mat-chip [disableRipple]="true">20/35</mat-chip>
         <!-- <p>Party will be at {{location}} starting at 10pm and lasting for {{length}} hrs!!</p> -->
       </mat-card-content>
@@ -17,15 +17,3 @@
       <button mat-raised-button>More Info</button>
     </div>
 </mat-card>
-<!-- 
-<div class="party_elem">
-  <div class="attending_type">
-    <div class="people_attending">20 / 35</div>
-    <div class="party_type">Private</div>
-  </div>
-  <div class="name_name">
-    <div class="party_name">Custom Name #1</div>
-    <div class="party_owner">Joe Mama</div>
-  </div>
-  <div class="party_location_button">More info</div>
-</div> -->
