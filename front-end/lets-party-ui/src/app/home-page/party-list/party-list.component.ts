@@ -9,9 +9,9 @@ import { PartiesDataService } from '../../services/parties-data.service';
 export class PartyListComponent {
   parties:any;
   constructor(private partyData:PartiesDataService){
-    this.partyData.parties().subscribe((data) => {
-      console.warn("data", data);
-      this.parties = data;
-    });
+    // this.partyData.parties().subscribe((data) => {
+    //   console.warn("data", data);
+    //   this.parties = data;
+    // });
   }
 }

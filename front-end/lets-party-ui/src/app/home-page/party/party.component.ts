@@ -18,10 +18,11 @@ export class PartyComponent {
 
   parties:any;
   constructor(private partyData:PartiesDataService){
-    this.partyData.parties().subscribe((data) => {
-      console.warn("data", data);
-      this.parties = data;
-    });
+    // this.partyData.parties().subscribe((data) => {
+    //   console.warn("data", data);
+    //   this.parties = data;
+    // });
+    this.parties = this.partyData.parties();
   }
 }
 
