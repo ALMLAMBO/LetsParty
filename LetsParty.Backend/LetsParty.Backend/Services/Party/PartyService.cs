@@ -9,6 +9,15 @@
             _context = context;
         }
 
+        public Models.Party AddGuest(int userId, int partyId)
+        {
+            Models.User guest = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            Models.Party partyToUpdate = _context.Parties.FirstOrDefault(p => p.PartyId == partyId);
+            partyToUpdate.Users.Add(guest);
+            _context.SaveChanges();
+            return partyToUpdate;
+        }
+
         public List<Models.Party> All()
         {
             return _context.Parties.ToList();
@@ -38,6 +47,15 @@
         public List<Models.User> GetGuestsForParty(int partyId)
         {
             return _context.Parties.Where(x => x.PartyId == partyId).SelectMany(p=>p.Users).ToList();
+        }
+
+        public Models.Party RemoveGuest(int userId, int partyId)
+        {
+            Models.User guest = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            Models.Party partyToUpdate = _context.Parties.FirstOrDefault(p => p.PartyId == partyId);
+            partyToUpdate.Users.Remove(guest);
+            _context.SaveChanges();
+            return partyToUpdate;
         }
 
         public Models.Party Update(Models.Party party)

@@ -9,5 +9,7 @@
         public Models.Party Delete(int id);
 
         public List<Models.User> GetGuestsForParty(int partyId);
+        public Models.Party AddGuest(int userId, int partyId);
+        public Models.Party RemoveGuest(int userId, int partyId);
     }
 }
