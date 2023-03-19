@@ -1,15 +1,15 @@
 <mat-toolbar>
     <div class="header_1">
-        <button mat-flat-button color="primary">Home</button>
-        <button mat-flat-button color="primary" (click)="openCalendarDialog()">Calendar</button>
-        <button mat-flat-button color="primary">Friends</button>
-        <button mat-flat-button color="primary">About us</button>
+        <a mat-flat-button routerLink="" color="primary">Home</a>
+        <a mat-flat-button routerLink="/calendar" color="primary">Calendar</a>
+        <a mat-flat-button routerLink="/friends" color="primary">Friends</a>
+        <a mat-flat-button routerLink="/about-us" color="primary">About us</a>
     </div>
     <div class="header_profile">
         <button mat-flat-button [matMenuTriggerFor]="menu" color="primary" class="profile_button">Profile</button>
         <mat-menu #menu="matMenu">
-            <button (click)="openLoginRegisterDialog()" mat-menu-item>Log in</button>
-            <button mat-menu-item>Register</button>
+            <button (click)="openLoginDialog()" mat-menu-item>Log in</button>
+            <button (click)="openRegisterDialog()" mat-menu-item>Register</button>
         </mat-menu>
     </div>
 </mat-toolbar>

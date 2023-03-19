@@ -7,7 +7,6 @@ import { MatCardModule } from '@angular/material/card';
 import { PartyListComponent } from './party-list/party-list.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
@@ -16,10 +15,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
 import { MapPanelComponent } from './map-panel/map-panel.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoginRegisterComponent } from './loginRegister/loginRegister.component';
+import { LoginComponent } from './login/login.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FriendsComponent } from './friends/friends.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     PartyListComponent,
     CalendarComponent,
     MapPanelComponent,
-    LoginRegisterComponent
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    FriendsComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +45,6 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatSliderModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
     MatButtonModule,
@@ -44,13 +52,16 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatChipsModule,
     MatMenuModule,
     MatTabsModule,
-    MatButtonToggleModule,
+    MatFormFieldModule,
+    RouterModule,
+    CalendarModule
   ],
   exports: [
     PartyComponent,
     PartyListComponent,
     NavbarComponent,
-    MapPanelComponent
+    MapPanelComponent,
+    HomeComponent
   ]
 })
 export class HomePageModule {
