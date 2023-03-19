@@ -14,13 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatChipsModule } from '@angular/material/chips';
+import { MapPanelComponent } from './map-panel/map-panel.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { LoginRegisterComponent } from './loginRegister/loginRegister.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
     PartyComponent,
     NavbarComponent,
     PartyListComponent,
-    CalendarComponent
+    CalendarComponent,
+    MapPanelComponent,
+    LoginRegisterComponent
   ],
   imports: [
     CommonModule,
@@ -33,12 +39,15 @@ import { MatChipsModule } from '@angular/material/chips';
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule,
+    MatTabsModule
   ],
   exports: [
     PartyComponent,
     PartyListComponent,
     NavbarComponent,
+    MapPanelComponent
   ]
 })
 export class HomePageModule {

@@ -7,7 +7,7 @@ mat-card {
 
 .party-section {
   margin: 1em;
-  width: 60%;
+  width: 100%;
   height: 80vh;
   overflow-y: scroll;
 }

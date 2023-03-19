@@ -6,7 +6,10 @@
         <button mat-flat-button color="primary">About us</button>
     </div>
     <div class="header_profile">
-        <button mat-flat-button color="primary" onclick="myFunction()" class="profile_button">Profiles</button>
+        <button mat-flat-button [matMenuTriggerFor]="menu" color="primary" class="profile_button">Profile</button>
+        <mat-menu #menu="matMenu">
+            <button (click)="openLoginRegisterDialog()" mat-menu-item>Log in</button>
+            <button mat-menu-item>Register</button>
+        </mat-menu>
     </div>
-
 </mat-toolbar>
