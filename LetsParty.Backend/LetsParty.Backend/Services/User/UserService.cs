@@ -43,14 +43,11 @@ namespace LetsParty.Backend.Services.User {
 		}
 
 		public Models.User UpdateUser(Models.User user) {
-<<<<<<< HEAD
 			HMACSHA512 hmac = new HMACSHA512();
 			byte[] key = hmac.Key;
 			user.Password = Encoding.UTF8.GetString(
 				hmac.ComputeHash(Encoding.UTF8.GetBytes(user.Password)));
 
-=======
->>>>>>> 8ce030615e32ed4136522d4016cc1ee37761b0b5
 			Models.User userToUpdate = _context.Users
 				.Where(x => x.Id == user.Id)
 				.FirstOrDefault();
