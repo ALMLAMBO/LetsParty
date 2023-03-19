@@ -1,0 +1,183 @@
+.create_party{
+    font-size: 30px;
+    margin: 0px auto;
+    
+    width: 80%;
+    height: 80%;
+    border: solid 3px black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cp_information {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    
+}
+
+.cp_left{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 85%;
+    margin: 5% auto;
+
+    justify-content: space-between;
+    text-align: center;
+}
+
+.cp_left_name{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.example-full-width{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+}
+
+.cp_left_name_text{
+    margin: 0 15px;
+}
+
+.cp_left_description{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+
+}
+
+.cp_left_location{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+.cp_left_location_map{
+    margin: 20px 0;
+    background-color: cyan;
+    width: 80%;
+    height: 80%;
+}
+
+.cp_right{
+    width: 45%;
+    height: 85%;
+    margin: 5% auto;
+    
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cp_right_privacy_type{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.cp_right_location_type{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cp_right_date{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cp_right_beginning{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cp_right_length{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_right_optionals{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cp_optionals{
+    display: none;
+}
+
+.cp_create_button{
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    text-align: center;
+    height: 15%;
+}  
+
+.cp_create_button_area{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    width: 30%;
+    justify-content: center;
+    font-size:60px;
+    font-weight: bold;
+    border-radius: 10%;
+    border: solid 8px purple;
+    background-color: Crimson;
+}
+
+.example-button-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+  .privacy_stuff{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .privacy_stuff_2{
+    width: 140px;
+    justify-content: space-between;
+    font-weight: bold; 
+    font-size: 30px; 
+    margin: 0px 50px;
+  }
+
+  .date_stuff{
+    display: flex;
+    text-align: center;
+    margin: auto 0;
+  }
+
+
+  .optional_button_css{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    
+  }

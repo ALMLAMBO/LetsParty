@@ -1,0 +1,90 @@
+    <div class="create_party">
+        <div class="cp_information">
+            <div class="cp_left">
+                <div class="cp_left_name">
+                    <div class="cp_left_name_text">Name:</div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Party Name</mat-label>
+                        <input matInput placeholder="Ex. Joe's Party at 33">
+                      </mat-form-field>
+                </div>
+    
+                <div class="cp_left_description">
+                    <div class="cp_left_name_text">Description:</div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Ex. Party for my buddies">
+                      </mat-form-field>
+                </div>
+    
+                <div class="cp_left_location">
+                    Location
+                    <iframe class="cp_left_location_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.274257380938!2d-70.56068388481569!3d41.45496659976631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e52963ac45bbcb%3A0xf05e8d125e82af10!2sDos%20Mas!5e0!3m2!1sen!2sus!4v1671220374408!5m2!1sen!2sus" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="cp_right">
+                    <div class="cp_right_privacy_type">
+                        Privacy Type:
+                        <div class="privacy_stuff">
+                            <mat-slide-toggle></mat-slide-toggle>
+                            <div class="privacy_stuff_2">Public</div>
+                        </div>
+                    </div>
+                    <div class="cp_right_location_type">
+                        Location Type:
+                        <div class="privacy_stuff">
+                            <mat-slide-toggle></mat-slide-toggle>
+                            <div class="privacy_stuff_2">Home</div>
+                        </div>
+                    </div>
+                    <div class="cp_right_date">
+                        <div class="date_stuff">Date:</div>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="picker">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matIconSuffix [for]="picker">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                    </div>
+                    
+                    <div class="cp_right_beginning">
+                        <div class="date_stuff">Begining time:</div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Time start</mat-label>
+                            <input matInput placeholder="Ex. Joe">
+                          </mat-form-field>
+                    </div>
+                    <div class="cp_right_beginning">
+                        <div class="date_stuff">Length:</div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Length</mat-label>
+                            <input matInput placeholder="Ex. Joe">
+                          </mat-form-field>
+                    </div>
+                    <div class="example-button-row">
+                        <div style="border: 8px purple solid; border-radius: 10%; height: 90%;">
+                            <button mat-button color="primary" class="optional_button_css">Primary</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        
+        <div class="cp_create_button">
+            <button mat-button color="white" class="cp_create_button_area">Create Party</button>
+        </div>
+        <div class="cp_optionals">
+            <div class="cp_playlist">
+                Playlist
+                <input>
+            </div>
+            <div class="cp_ban_list">
+                Ban List
+                <input>
+            </div>
+            <div class="games">
+                Games
+                <input>
+            </div>
+        </div>
+    </div>

@@ -9,10 +9,21 @@ import { UserAuthModule } from "./user-auth/user-auth.module";
 
 import { HomePageModule } from './home-page/home-page.module';
 import { MatButtonModule } from '@angular/material/button';
+import { CpComponent } from './createParty/cp/cp.component';
+
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+import { GoogleMapsModule } from '@angular/google-maps';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    CpComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +33,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UserAuthModule
+    UserAuthModule,
+
+    MatButtonToggleModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

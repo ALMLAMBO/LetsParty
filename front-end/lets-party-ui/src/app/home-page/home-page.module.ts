@@ -18,6 +18,8 @@ import { MapPanelComponent } from './map-panel/map-panel.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginRegisterComponent } from './loginRegister/loginRegister.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatToolbarModule,
     MatChipsModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule,
   ],
   exports: [
     PartyComponent,
