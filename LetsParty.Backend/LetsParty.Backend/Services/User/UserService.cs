@@ -23,7 +23,7 @@ namespace LetsParty.Backend.Services.User {
 
 		public Models.User DeleteUser(int id) {
 			Models.User user = _context.Users
-				.Where(x => x.Id == id)
+				.Where(x => x.UserId == id)
 				.FirstOrDefault();
 
 			_context.Remove(user);
@@ -38,7 +38,7 @@ namespace LetsParty.Backend.Services.User {
 
 		public Models.User GetUser(int id) {
 			return _context.Users
-				.Where(x => x.Id == id)
+				.Where(x => x.UserId == id)
 				.FirstOrDefault();
 		}
 
@@ -49,7 +49,7 @@ namespace LetsParty.Backend.Services.User {
 				hmac.ComputeHash(Encoding.UTF8.GetBytes(user.Password)));
 
 			Models.User userToUpdate = _context.Users
-				.Where(x => x.Id == user.Id)
+				.Where(x => x.UserId == user.UserId)
 				.FirstOrDefault();
 
 			userToUpdate = user;
