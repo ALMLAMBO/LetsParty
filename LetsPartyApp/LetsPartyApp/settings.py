@@ -64,13 +64,9 @@ CORS_ALLOW_METHODS = [
     'PUT',
 ]
 
-<<<<<<< HEAD
-=======
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200',
 )
-
->>>>>>> backEnd
 ROOT_URLCONF = 'LetsPartyApp.urls'
 
 TEMPLATES = [
