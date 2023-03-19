@@ -37,7 +37,7 @@ namespace LetsParty.Backend.Services.Game {
 		}
 
 		public List<Models.Game> GetGamesForParty(int partyId) {
-			Party party = _context.Parties
+			Models.Party party = _context.Parties
 				.Where(p => p.PartyId == partyId)
 				.FirstOrDefault();
 
