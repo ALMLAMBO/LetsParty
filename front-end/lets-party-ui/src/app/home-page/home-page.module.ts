@@ -42,7 +42,6 @@ import { MatChipsModule } from '@angular/material/chips';
   ]
 })
 export class HomePageModule {
-  party_list:PartyListComponent = new PartyListComponent();
 }
 
 
